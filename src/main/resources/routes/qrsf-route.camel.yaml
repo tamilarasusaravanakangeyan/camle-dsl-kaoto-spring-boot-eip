@@ -1,0 +1,28 @@
+- route:
+    id: route-3682
+    from:
+      id: from-1268
+      uri: timer
+      parameters:
+        delay: "10000"
+        period: "10000"
+        timerName: template
+      steps:
+        - to:
+            id: to-2039
+            uri: salesforce
+            parameters:
+              operationName: getSObject
+              rawPayload: true
+              replayId: -1
+              sObjectClass: org.apache.camel.salesforce.dto.Account
+              sObjectId: 001RK00000QelKbYAJ
+              sObjectName: Account
+        # - unmarshal:
+        #     id: unmarshal-3709
+        #     json:
+        #       library: Jackson
+        #       unmarshalType: org.apache.camel.salesforce.dto.Account
+        - log:
+            id: log-3040
+            message: ${body}
