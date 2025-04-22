@@ -1,0 +1,63 @@
+@startuml c4-context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/users.puml
+!include DEVICONS/angular.puml
+
+' Person(user, "User","Travel Agency")
+' Person(user1, "User 1")
+' Person(user2, "User 2")
+' Person(user3, "User 3")
+
+Person(user1, "Customer", "Travel Agency", $sprite="users")
+Person(user2, "Sales", "Sales Excellence", $sprite="users")
+
+' System(system1, "Travel Portal")
+
+System(system2, "On-Premise")
+' ,$sprite="img:https://galaxy.qatarairways.com.qa/Galaxy2.0/assets/img/Galaxy_logo_WhiteC.png")
+
+System(system3, "Salesforce CRM",$sprite="img:https://www.salesforce.com/news/wp-content/uploads/sites/3/2021/05/Salesforce-logo.jpg?w=100&h=200")
+
+
+' normal sprites are too big 
+' Rel_L(user, user2, "informs", "courier", "normal sprites are too big", $sprite="person2")
+
+' ' scaled sprites are ok
+' Rel_R(user, user3, "informs", "courier", "scaled sprites are OK", $sprite="person2,scale=0.5")
+
+' ' combine sprite and scale to a new sprite
+' !$combinedSprite="person2,scale=0.5"
+' Rel_R(user, user3, "informs", "courier", "combined sprites are OK", $sprite=$combinedSprite)
+
+
+' Rel_R(user1, system, "orders", "http", "small sprites, like the small triangle", $sprite="triangle")
+
+' ' if sprite starts with &, sprite defines a OpenIconic, details see https://useiconic.com/open/
+' Rel_D(user, user1, "requests", "async message", "if sprite starts with &, it defines a OpenIconic like &envelope-closed", $sprite = "&envelope-closed")
+@enduml
+
+' @startuml
+' !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+' 'stdlib users.puml defines sprite "users"
+' !include <office/users/users.puml>
+
+
+' AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:https://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:https://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
+
+' Person(user, "user group displayed with a sprite", $sprite="users")
+
+
+' Container(container, "Container with scaled and colored OpenIconic", $sprite="&folder,scale=5.0,color=gray")
+
+' System(system1, "System with an image", $sprite="img:https://plantuml.com/logo3.png")
+
+' System(system2, "System with an image", $sprite="img:https://www.salesforce.com/news/wp-content/uploads/sites/3/2021/05/Salesforce-logo.jpg?w=100&h=200")
+
+' Rel(user, system1, "Rel with image (via tags)", $tags="plantuml")
+' Rel(user, container, "Rel with OpenIconinc", $sprite="&folder")
+
+' SHOW_LEGEND()
+' @enduml

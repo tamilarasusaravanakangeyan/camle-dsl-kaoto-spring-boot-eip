@@ -1,0 +1,20 @@
+@startuml C4_Sequence
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
+actor "QR Sales" #blue
+actor "Travel Agency" #orange
+' The only difference between actor
+'and participant is the drawing
+participant IATA
+participant Galaxy
+participant Salesforce
+participant "I have a really\nlong name" as L #99FF99
+/' You can also declare:
+participant L as "I have a really\nlong name" #99FF99
+'/
+IATA->Galaxy: Agency Infomration Processing
+Galaxy->Salesforce: Transformed Agency Information
+"QR Sales"->Salesforce: CRM Process using Salesforce UI
+
+' Bob->Alice: Authentication Response
+' Bob->L: Log transaction
+@enduml
